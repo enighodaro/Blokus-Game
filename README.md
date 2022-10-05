@@ -34,6 +34,7 @@ End of Game
 
 The user has no more available moves and all other players are done playing. The system provides the scores of each player with their relative positions. Scores indicate how many blocks each player had left. The player(s) with the smallest amount of squares (lowest score) is the winner. 
 
+Implemented using: JAVA 
 
 copied from https://www.ultraboardgames.com/blokus/game-rules.php (with some changes to end of game flow)
 
