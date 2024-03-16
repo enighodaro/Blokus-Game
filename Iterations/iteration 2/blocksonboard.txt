@@ -1,0 +1,114 @@
+import javax.swing.JPanel; 
+import javax.swing.JFrame;
+import java.awt.Graphics;
+import java.awt.Color; 
+import java.awt.BorderLayout;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
+public class Block {
+  
+    private int[][][] block_coord;
+    private static final int block_count =21;
+  
+    public Block() {
+        createBlocks();
+        
+    }
+  
+    public void createBlocks(){
+        //idea in development for creating blocks
+        
+        block_coord = new int[][][]{ //creates square shapes using coordinate system 
+            {{0,-2},{0,-1},{0,0},{0,1},{0,2}}, //long backward L
+            {{-3,1},{-2,1},{-1,1},{0,1},{0,0}}, //sideways long L
+            {{0,1},{-1,0},{0,0},{-1,-1},{0,2}}, //long Z
+            {{0, 0},{1,0},{0,1},{1,1},{1,2}}, //
+            {{-1,0},{0,0},{1,0},{0,1},{0,-1}},
+            {{-1,0},{0,0},{1,0},{1,1},{1,2}},
+            {{0,1},{-1,0},{0,0},{-1,-1},{1,1}},
+            {{-1,0},{0,0},{0,1},{0,2},{1,2}},
+            {{-1,0},{0,0},{1,0},{0,1},{2,0}},
+            {{-1,0},{0,0},{0,1},{0,2},{1,1}},
+            {{-2,1},{-1,1},{0,1},{0,0},{0,2}},
+            {{-1,2},{-1,1},{-1,0},{0,2},{0,0}}, 
+            
+            {{0,1},{-1,0},{0,0},{-1,-1},{}},
+            {{-1,0},{0,0},{1,0},{0,1},{}},
+            {{0, 0},{1,0},{0,1},{1,1},{}},
+            {{0,-1}, {0,0},{0,1},{0,2},{}},
+            {{-2,1},{-1,1},{0,1},{0,0},{}},
+            
+            {{0,-1}, {0,0},{0,1},{},{}},
+            {{-1,0}, {0,0},{0,1},{},{}},
+            
+            {{0,0},{0,1},{},{},{}},
+            
+            {{0,0},{},{},{},{}}
+            
+        };
+    }
+    
+  public int[][][] getBlocks(){
+    return block_coord;
+  }
+}
+
+
+
+/**
+ * Stores objects of type block 
+ *
+ * @author (Naomi Ighodaro)
+ * @version (v1)
+ */
+public class BlockBank extends JPanel
+{
+    // instance variables 
+    private Block block = new Block(); 
+    
+    /**
+     * Constructor for objects of class BlockBank
+     */
+    public BlockBank()
+    {
+        // initialise instance variables
+        super();
+        
+    }
+
+    
+    /**
+     * A method to set colour of and add blocks in panel
+     *
+     */
+    public void draw(Graphics g, Color color)
+    {
+      super.paintComponents(g);
+      g.setColor(color);
+      for(int i=0; i<21; i++){
+        for(int j=0; j<5; j++){
+      		g.drawLine(block.getBlocks()[i][j][0],block.getBlocks()[i][j][1],block.getBlocks()[i][j][0]+1, block.getBlocks()[i][j][1]);
+        	g.drawLine(block.getBlocks()[i][j][0],block.getBlocks()[i][j][1],block.getBlocks()[i][j][0], block.getBlocks()[i][j][1]-1);
+            g.drawLine(block.getBlocks()[i][j][0]+1,block.getBlocks()[i][j][1],block.getBlocks()[i][j][0]+1, block.getBlocks()[i][j][1]-1);
+            g.drawLine(block.getBlocks()[i][j][0],block.getBlocks()[i][j][1]-1,block.getBlocks()[i][j][0]+1, block.getBlocks()[i][j][1]-1);
+        }
+      }
+      super.paint(g);
+      g.setColor(color);
+    } 
+
+	public static void main(String args[]){
+      	BlockBank b1 = new BlockBank();
+    	JFrame f = new JFrame();
+    	f.setLayout(new BorderLayout());
+    	f.add(b1, BorderLayout.WEST);
+
+    	b1.setVisible(true);
+
+    	f.pack();
+    	f.setVisible(true);
+
+  }
+}

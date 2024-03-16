@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Blocks
+comment1.params=
+comment1.target=Blocks()
+comment2.params=
+comment2.target=void\ createBlocks()
+comment3.params=
+comment3.target=int[][][]\ setShape4()
+comment4.params=
+comment4.target=int[][][]\ setShape5()
+comment5.params=
+comment5.target=int[][][]\ setShape3()
+comment6.params=
+comment6.target=int[][]\ setShape2()
+comment7.params=
+comment7.target=int[]\ setShape1()
+numComments=8
